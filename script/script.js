@@ -5,8 +5,8 @@
 let attendu = [
 
     {
-    bouteilleVin : 12,
-    poisVin : 36,
+    bouteillesVin : 12,
+    poisVin : 3,
     },
 
     {
@@ -39,8 +39,7 @@ let attendu = [
     }
     
 ]
-//caisse(27,3,13,2);
-//console.log(attendu[2].bouteillesVin,attendu[2].poisVin,attendu[2].bouteillesSpiritueux,attendu[2].poisSpirituel);
+
 for(let i=0; i<attendu.length; i++){
 caisse(attendu[i].bouteillesVin,attendu[i].poisVin,attendu[i].bouteillesSpiritueux,attendu[i].poisSpirituel);
 }
@@ -49,33 +48,42 @@ caisse(attendu[i].bouteillesVin,attendu[i].poisVin,attendu[i].bouteillesSpiritue
      
 
 function caisse(nombreVin,poisVin,nombreSpirituel,poisSpirituel){
+    if(nombreVin == undefined){
+        nombreVin = 0;
+    }
+    if(poisVin == undefined){
+        poisVin = 0;
+    }
+    if(nombreSpirituel == undefined){
+        nombreSpirituel = 0;
+    }
+    if(poisSpirituel == undefined){
+        poisSpirituel = 0;
+    }
     totalVinPois = nombreVin * poisVin;
     totalSpirituelPois = nombreSpirituel * poisSpirituel;
+    console.log("bouteille de vin "+nombreVin + "bouteille spiritueux"+ nombreSpirituel);
+
 
     if(nombreVin==0 && nombreSpirituel ==0){
         console.log("veuiller entrer un vin ou un spirituel");
+    }else if(nombreVin <= 12 && nombreSpirituel <= 0 ){
+        console.log("cette commande rentre dans une boite de 12 bouteilles elle contien "+ nombreVin + " bouteille de vin");
+    
+    }else if(nombreSpirituel <12 && nombreVin <=0){
+        console.log("cette commande contien "+ nombreSpirituel + " bouteille de Spirituel");
+    }else if(nombreVin < 12 && nombreSpirituel < 12 && nombreVin + nombreVin <=12){
+        console.log("cette commande rentre dans une boite de 12 bouteilles elle contien "+ nombreVin + " bouteille de vin et "+ nombreSpirituel +" bouteille de spiritueux");
     }
-    if(nombreVin < 12 && nombreSpirituel < 12){
-        
-    }
-    if(nombreVin < 12 && nombreSpirituel <= 0 ){
 
-    }
-    if(nombreSpirituel <12 && nombreVin <=0){
 
-    }
+
     if(nombreVin > 12 && nombreSpirituel > 12){
-
         if(totalVinPois > totalSpirituelPois){
-
-            console.log( "j'ai "+Math.floor(nombreVin / 12)+"  caisse de 12 " );
-            console.log( "dans la caisse de spiritueux il vas y avoir "+nombreVin %12+" bouteille de vin"+" ce nombre de bouteille de spiritueux "+ nombreSpirituel+" donc dans ta boite de spiritueux il a "+(nombreVin %12 + nombreSpirituel+" bouteille") );
-            
-
-
-        }else{
+            console.log( "j'ai "+Math.floor(nombreVin / 12)+"  caisse de 12 "+"dans la caisse de spiritueux il vas y avoir "+nombreVin %12+" bouteille de vin"+" ce nombre de bouteille de spiritueux "+ nombreSpirituel+" donc dans ta boite de spiritueux il a "+(nombreVin %12 + nombreSpirituel+" bouteille") );
+           }else{
             nombreSpirituel % 12;
-        }
+                }
     }else if(nombreVin > 0){ 
         totalVinPois*poisVin;
     }else if(nombreSpirituel>0){
