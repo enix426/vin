@@ -1,0 +1,58 @@
+Avec une liste de produits:
+
+[{ weight_pounds: 3, quantity: 14, department: "Wine" },
+ { weight_pounds: 15, quantity: 2, department: "Spirits" }]
+
+Retourne moi une liste de poids, considerant que si j'ai 12 bouteilles de vin, 
+mets les dans une caisse de 12 jusqu'a ce que soit:
+- Il n'y a plus assez de vin pour remplir une caisse de 12
+- Le poids restant est inferieur ou egal a 150
+
+Tests: 
+[{ weight_pounds: 3, quantity: 14, department: "Wine" },
+ { weight_pounds: 20, quantity: 2, department: "Spirits" }]
+// Retourne { poids: [82], produits_restant: [] }
+
+[{ weight_pounds: 3, quantity: 14, department: "Wine" },
+ { weight_pounds: 20, quantity: 10, department: "Spirits" }]
+// Retourne [ poids: [36, 236, produits_restant: [{ weight_pounds: 3, quantity: 2, department: "Wine" }, { ... "Spirits" }]
+
+[{ weight_pounds: 3, quantity: 50, department: "Wine" }]
+// [ poids: [36, 36, 36, 36, 2], produits_restant: []]
+
+
+// - Il n'y a plus assez de vin pour remplir une caisse de 12
+// - Le poids restant est inferieur ou egal a 150
+
+let attendu = [
+
+    {
+    bouteilleVin : 12,
+    pois : 36,
+    },
+
+    {
+        bouteillesVin :3,
+        bouteillesSpiritueux :1,
+        pois:149,
+    }
+    
+]
+
+let actuel = caisse();
+
+console.log(actuel == attendu);
+
+function caisse(){
+    let listeDeProduit = 
+[
+        { weight_pounds: 3, quantity: 14, department: "Wine" },
+        { weight_pounds: 15, quantity: 2, department: "Spirits" }
+];
+    console.log(listeDeProduit);
+    let weightPoundWine = 3;
+    let weightPoundsSpirit = 15;
+
+
+
+}
